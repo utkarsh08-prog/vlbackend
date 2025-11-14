@@ -4,7 +4,13 @@ import cors from "cors";
 import bodyParser from "body-parser";
 
 const app = express();
-app.use(cors());
+// Enable CORS for frontend and external requests. Allow GET and POST from any origin.
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,POST",
+  })
+);
 app.use(bodyParser.json());
 
 // 🔑 Razorpay keys (replace with your own)
